@@ -1,46 +1,63 @@
 package ait.homework34;
 
+
 import de.ait.homework34.StringProcessor;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringProcessorTest {
 
-    private StringProcessor stringProcessor ;
-    String str1 ="Hallo";
-    String str2 ="Cohort33E";
+    private StringProcessor stringProcessor;
 
     @BeforeEach
 
-    public void setUp () {
+    public void setUp() {
 
-        stringProcessor= new StringProcessor () ;
+        stringProcessor = new StringProcessor();
     }
 
     @Test
 
-    public void testConcatenate (String str1, String str2) {
-
-    String stringProcessor;
-        stringProcessor = stringProcessor.concat(String str1, String str2);
-
-        assertEquals( "Hallo Cohort33E", StringProcessor.concatenate(str1, str2));
-
-
-    public void testGetLength() {
-        StringProcessor stringProcessor = new StringProcessor();
-        int length = stringProcessor.getLength( "Hallo Cohort33E");
-        assertEquals(15, length);
+    void testConcatenate() {
+        String result = stringProcessor.concatenate("Hallo ", "Cohort33E");
+        assertEquals("Hallo Cohort33E", result);
     }
 
-        public void testReverse (String str1) {
-        String reversed= stringProcessor.reverse("Hallo");
-            assertEquals("ollaH", reversed);
+
+        @Test
+       void testGetLength() {
+            assertEquals(5, stringProcessor.getLength("Hallo"));
         }
 
+       // @Test
+
+      //  void testReverse () {
+
+       //   assertEquals("ollaH", reversed);
+       // }
+
+       @Test
+   void testIsPalindromeTrue() {
+           Assertions.assertTrue(stringProcessor.isPalindrome("ABBA"));
+
+            }
+    @Test
+    void testIsPalindromeFals() {
+        Assertions.assertFalse(stringProcessor.isPalindrome("Hallo Cohort33E"));
+
     }
+    @Test
+
+    void testReverse() {
+
+        assertEquals("ollaH", stringProcessor.reverse("Hallo"));
     }
+
+    }
+
 
 
